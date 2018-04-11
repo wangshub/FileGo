@@ -111,6 +111,15 @@ function createTray () {
             db.read().set('picBed.current', 'github')
               .write()
           }
+        },
+        {
+          label: 'GitLab图床',
+          type: 'radio',
+          checked: db.read().get('picBed.current').value() === 'gitlab',
+          click () {
+            db.read().set('picBed.current', 'gitlab')
+              .write()
+          }
         }
       ]
     },

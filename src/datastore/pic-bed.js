@@ -18,6 +18,10 @@ const picBed = [
   {
     title: 'GitHub图床',
     value: 'github'
+  },
+  {
+    title: 'Gitlab图床',
+    value: 'gitlab'
   }
 ]
 

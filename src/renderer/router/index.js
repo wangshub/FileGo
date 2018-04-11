@@ -46,6 +46,11 @@ export default new Router({
           name: 'github'
         },
         {
+          path: 'gitlab',
+          component: require('@/components/SettingView/GitLab').default,
+          name: 'gitlab'
+        },
+        {
           path: 'gallery',
           component: require('@/components/SettingView/Gallery').default,
           name: 'gallery'
