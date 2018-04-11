@@ -12,31 +12,31 @@
           :model="form"
           size="mini">
           <el-form-item
-            label="设定仓库名"
+            label="Gitlab 地址"
             prop="repo"
             :rules="{
-              required: true, message: '仓库名不能为空', trigger: 'blur'
+              required: true, message: '地址不能为空', trigger: 'blur'
             }">
             <el-input v-model="form.repo" @keyup.native.enter="confirm" placeholder="username"></el-input>
           </el-form-item>
           <el-form-item
-            label="设定分支名"
+            label="仓库 ID"
             prop="branch"
             :rules="{
-              required: true, message: '分支名不能为空', trigger: 'blur'
+              required: true, message: '仓库 ID 不能为空', trigger: 'blur'
             }">
             <el-input v-model="form.branch" @keyup.native.enter="confirm" placeholder="例如：master"></el-input>
           </el-form-item>
           <el-form-item
-            label="设定Token"
+            label="设定 Token"
             prop="token"
             :rules="{
-              required: true, message: 'Token不能为空', trigger: 'blur'
+              required: true, message: 'Token 不能为空', trigger: 'blur'
             }">
             <el-input v-model="form.token" @keyup.native.enter="confirm" placeholder="token"></el-input>
           </el-form-item>
           <el-form-item
-            label="指定存储路径"
+            label="存储路径(NA)"
             >
             <el-input v-model="form.path" @keyup.native.enter="confirm" placeholder="例如img/"></el-input>
           </el-form-item>

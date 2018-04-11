@@ -2,6 +2,7 @@ import request from 'request-promise'
 import * as img2Base64 from './img2base64'
 import db from '../../datastore/index'
 import { Notification } from 'electron'
+var logger = require('tracer').console()
 
 const postOptions = (fileName, options, data) => {
   const path = options.path || ''
@@ -20,11 +21,15 @@ const postOptions = (fileName, options, data) => {
 
 const githubUpload = async function (img, type, webContents) {
   try {
+    console.log('------GitLab uploader wangshub--------')
     webContents.send('uploadProgress', 0)
     const imgList = await img2Base64[type](img)
     const length = imgList.length
-    const githubOptions = db.read().get('picBed.github').value()
+    const githubOptions = db.read().get('picBed.gitlab').value()
     webContents.send('uploadProgress', 30)
+
+    logger.log(githubOptions)
+
     for (let i in imgList) {
       const data = {
         message: 'Upload by PicGo',
@@ -33,6 +38,7 @@ const githubUpload = async function (img, type, webContents) {
         path: githubOptions.path + encodeURI(imgList[i].fileName)
       }
       const postConfig = postOptions(imgList[i].fileName, githubOptions, data)
+      logger.log(postConfig)
       const body = await request(postConfig)
       if (body) {
         delete imgList[i].base64Image
@@ -59,4 +65,5 @@ const githubUpload = async function (img, type, webContents) {
   }
 }
 
+// export default githubUpload
 export default githubUpload
