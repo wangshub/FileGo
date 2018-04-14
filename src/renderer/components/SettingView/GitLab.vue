@@ -13,19 +13,19 @@
           size="mini">
           <el-form-item
             label="Gitlab 地址"
-            prop="repo"
+            prop="addr"
             :rules="{
               required: true, message: '地址不能为空', trigger: 'blur'
             }">
-            <el-input v-model="form.repo" @keyup.native.enter="confirm" placeholder="username"></el-input>
+            <el-input v-model="form.addr" @keyup.native.enter="confirm" placeholder="username"></el-input>
           </el-form-item>
           <el-form-item
             label="仓库 ID"
-            prop="branch"
+            prop="repoId"
             :rules="{
               required: true, message: '仓库 ID 不能为空', trigger: 'blur'
             }">
-            <el-input v-model="form.branch" @keyup.native.enter="confirm" placeholder="例如：master"></el-input>
+            <el-input v-model="form.repoId" @keyup.native.enter="confirm" placeholder="例如：master"></el-input>
           </el-form-item>
           <el-form-item
             label="设定 Token"
@@ -78,6 +78,7 @@ export default {
     confirm () {
       this.$refs.gitlab.validate((valid) => {
         if (valid) {
+          console.log('set: ', this.$db)
           this.$db.set('picBed.gitlab', this.form).write()
           const successNotification = new window.Notification('设置结果', {
             body: '设置成功'

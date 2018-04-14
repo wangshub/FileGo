@@ -27,10 +27,11 @@ const githubUpload = async function (img, type, webContents) {
     const length = imgList.length
     const githubOptions = db.read().get('picBed.gitlab').value()
     webContents.send('uploadProgress', 30)
-
+    // 打印参数配置信息
     logger.log(githubOptions)
 
     for (let i in imgList) {
+      // 拼接请求数据头
       const data = {
         message: 'Upload by PicGo',
         branch: githubOptions.branch,
@@ -39,7 +40,9 @@ const githubUpload = async function (img, type, webContents) {
       }
       const postConfig = postOptions(imgList[i].fileName, githubOptions, data)
       logger.log(postConfig)
+      // 发起网络请求
       const body = await request(postConfig)
+      // 处理服务器返回结果
       if (body) {
         delete imgList[i].base64Image
         imgList[i]['imgUrl'] = body.content.download_url
