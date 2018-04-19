@@ -232,7 +232,7 @@ const createWindow = () => {
 
 const createSettingWindow = () => {
   const options = {
-    height: 450,
+    height: 480,
     width: 800,
     show: false,
     frame: true,
