@@ -41,6 +41,16 @@ export default new Router({
           name: 'upyun'
         },
         {
+          path: 'github',
+          component: require('@/components/SettingView/GitHub').default,
+          name: 'github'
+        },
+        {
+          path: 'gitlab',
+          component: require('@/components/SettingView/GitLab').default,
+          name: 'gitlab'
+        },
+        {
           path: 'gallery',
           component: require('@/components/SettingView/Gallery').default,
           name: 'gallery'

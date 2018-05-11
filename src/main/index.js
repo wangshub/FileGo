@@ -102,6 +102,24 @@ function createTray () {
             db.read().set('picBed.current', 'upyun')
               .write()
           }
+        },
+        {
+          label: 'GitHub图床',
+          type: 'radio',
+          checked: db.read().get('picBed.current').value() === 'github',
+          click () {
+            db.read().set('picBed.current', 'github')
+              .write()
+          }
+        },
+        {
+          label: 'GitLab图床',
+          type: 'radio',
+          checked: db.read().get('picBed.current').value() === 'gitlab',
+          click () {
+            db.read().set('picBed.current', 'gitlab')
+              .write()
+          }
         }
       ]
     },
@@ -214,7 +232,7 @@ const createWindow = () => {
 
 const createSettingWindow = () => {
   const options = {
-    height: 450,
+    height: 480,
     width: 800,
     show: false,
     frame: true,

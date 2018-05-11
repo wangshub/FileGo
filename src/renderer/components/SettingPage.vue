@@ -38,6 +38,14 @@
             <i class="el-icon-ui-upyun"></i>
             <span slot="title">又拍云设置</span>
           </el-menu-item>
+          <el-menu-item index="github">
+            <i class="el-icon-ui-github"></i>
+            <span slot="title">GitHub设置</span>
+          </el-menu-item>
+          <el-menu-item index="gitlab">
+            <i class="el-icon-ui-gitlab"></i>
+            <span slot="title">GitLab设置</span>
+          </el-menu-item>
           <i class="el-icon-setting" @click="openDialog"></i>
         </el-menu>
       </el-col>
